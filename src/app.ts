@@ -1,37 +1,20 @@
-const myObj = {
-    myMethod: function myMethod() {
-        console.log('Object :>> ', this);
-    }
-};
-
-// myObj.myMethod();
-
 class MyClass {
-    name: string;
     myMethod() {
-        console.log('class :>>', this);
+        const foo = 123;
+        console.log('1', this);
+        setTimeout(() => {
+            // lexical scope
+            console.log(this); // --> MyClass. Doesn't create scope change 
+        }, 0);
+        setTimeout(function() {
+            console.log(this); // --> Window
+        }, 0);
+    }
+    foo(){
+        const foo = 456;
+        console.log('foo', foo);
     }
 }
 
-// new MyClass().myMethod();
-
-function myFunction(text: string, arg2: string) {
-    console.log('function :>', this, text, arg2);
-}
-
-myFunction('ABC', 'DEF');
-myFunction.call(myObj, 'ABC', 'DEF');
-myFunction.call([]);
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
-
-
-const m = {
-    x: 42,
-    getX: function () {
-        return this.x;
-    }
-};
-
-const unboundGetX = m.getX;
-console.log('unboundGetX()', unboundGetX());
+const myInstance = new MyClass();
+myInstance.myMethod();
