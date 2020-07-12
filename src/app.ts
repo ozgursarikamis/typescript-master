@@ -9,10 +9,12 @@ const person = {
     name: 'Todd', age: 27
 }
 type Person = typeof person; 
+type PersonKeys = keyof Person; // Union types: name | age
+
+type PersonTypes = Person[PersonKeys];
 
 const anotherPerson: Person = {
     name: 'Özgür', age: 30
 }
 console.log('anotherPerson', anotherPerson);
-// Javascript:
-// typeof person // 'object'
+
