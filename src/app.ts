@@ -24,3 +24,14 @@ myFunction.call(myObj, 'ABC', 'DEF');
 myFunction.call([]);
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+
+
+const m = {
+    x: 42,
+    getX: function () {
+        return this.x;
+    }
+};
+
+const unboundGetX = m.getX;
+console.log('unboundGetX()', unboundGetX());

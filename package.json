@@ -3,13 +3,11 @@
   "author": "Ultimate Angular",
   "version": "0.0.0",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "parcel index.html -p 3000"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "5.2.1",
     "typescript": "3.9.6",
-    "webpack": "4.43.0",
-    "webpack-dev-server": "3.11.0",
     "parcel-bundler": "^1.12.4"
-  }
+  },
+  "license": "MIT"
 }
