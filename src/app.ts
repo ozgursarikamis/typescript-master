@@ -1,12 +1,21 @@
-interface Person {
-    name: string;
-    age: number;
-    address: { }
+// let dictionary: { [key: string]: any } = { } 
+
+// a bit more dynamic:
+let dictionary: Record<string, typeof item> = { } 
+
+interface TrackStates {
+    current: string;
+    next: string;
 }
-type MyPick<T, K extends keyof T> = {
-    [P in K]: T[P]
+
+// const item: Record<'current' | 'next', string> = {
+//     current: '899u676t76t',
+//     next: '545rftfr665',
+// }
+const item: Record<keyof TrackStates, string> = {
+    current: '899u676t76t',
+    next: '545rftfr665',
 }
-const person: Pick<Person, 'name' | 'age'> = {
-    name: 'Özgür',
-    age: 30,
-};
+
+// numbers are coerced to String
+dictionary[0] = item;
