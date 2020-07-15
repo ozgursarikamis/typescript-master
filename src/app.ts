@@ -1,10 +1,27 @@
-const person = {
-    name: 'Todd', age: 27
+interface Person {
+    name: string;
+    age: number;
 }
 
-function getProperty<T, K extends keyof T>(obj: T, key: K) {
-    return obj[key];
+interface readonlyPerson {
+    readonly name: string;
+    readonly age: number;
 }
 
-const personName = getProperty(person, 'name');
-console.log('personName', personName);
+const person: Person = {
+    name: 'Özgür',
+    age: 27
+};
+
+person.name = 'Özgür';
+person.age = 27;
+
+type MyReadonly<T>= {
+    readonly [P in keyof T]: T[P]
+}
+function freezePerson<T>(person: T): MyReadonly<T> {
+    return Object.freeze(person);
+}
+
+const newPerson = freezePerson(person);
+newPerson.age = 27;
