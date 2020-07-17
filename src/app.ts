@@ -1,15 +1,15 @@
-// Numeric Enums and Reverse Mappings
+// String Enums and Inlining Members
 
 enum Sizes {
-    Small,
-    Medium,
-    Large
+    Small = 'small',
+    Medium = 'medium',
+    Large = 'large'
 }
 
-// enums are extendible
-enum Sizes {
-    ExtraLarge = 3
+let selected: Sizes = Sizes.Small;
+function updateSize(size: Sizes): void {
+    selected = size;
 }
 
-console.log(Sizes.Medium);
-console.log(Sizes.Large, Sizes[Sizes.Large]);
+updateSize(Sizes.Large);
+console.log(selected);
