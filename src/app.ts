@@ -1,16 +1,13 @@
-interface Item { name: string; }
-
-interface Artist extends Item { songs: number; }
-// merging interfaces, which we can't do with types
-interface Artist { getSongs(): number }
-
-// instead of extend, we can use intersection type:
-type Artist2 = { name: string } & Item;
-
-const newArtist: Artist = {
-    name: 'abc',
-    songs: 5,
-    getSongs(): number {
-        return this.songs;
-    }
+interface IArtist {
+    name: string;
 }
+
+class ArtistCreator implements IArtist {
+    constructor(public name: string) { }    // <-- Artist interface satisfied.
+}
+
+function artistFactory({ name }: ArtistCreator) {
+    return new ArtistCreator(name);
+}
+
+artistFactory({ name: 'Todd' });
