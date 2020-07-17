@@ -1,27 +1,15 @@
-class Pizza {
-    constructor(private name: string, private price: number) { }
-}
+// does not get compiled to JS:
 
-class List<T> {
-    private list: T[];
+function reverse(str: string): string;
+function reverse<T>(arr: T[]): T[];
 
-    addItem(item: T): void {
-        this.list.push(item);
+function reverse<T>(stringOrArray: string | T[]): string | T[] {
+    if (typeof stringOrArray === 'string') {
+        return stringOrArray.split('').reverse().join('');
     }
-
-    getList(): T[] {
-        return this.list;
-    }
+    return stringOrArray.slice().reverse();
 }
 
-const list = new List<Pizza>();
-list.addItem(new Pizza('Pepperoni', 15));
-
-const pizzas: Pizza[] = list.getList();
-
-class Coupon {
-    constructor(private name: string) { }
-}
-
-const anotherList = new List<Coupon>();
-anotherList.addItem(new Coupon('PIZZA25'));
+reverse('Pepperoni');
+reverse(['bacon', 'pepperoni', 'chilli', 'mushrooms'])
+reverse([1, 2, 3, 4])
