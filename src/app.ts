@@ -1,15 +1,15 @@
-// does not get compiled to JS:
+// Numeric Enums and Reverse Mappings
 
-function reverse(str: string): string;
-function reverse<T>(arr: T[]): T[];
-
-function reverse<T>(stringOrArray: string | T[]): string | T[] {
-    if (typeof stringOrArray === 'string') {
-        return stringOrArray.split('').reverse().join('');
-    }
-    return stringOrArray.slice().reverse();
+enum Sizes {
+    Small,
+    Medium,
+    Large
 }
 
-reverse('Pepperoni');
-reverse(['bacon', 'pepperoni', 'chilli', 'mushrooms'])
-reverse([1, 2, 3, 4])
+// enums are extendible
+enum Sizes {
+    ExtraLarge = 3
+}
+
+console.log(Sizes.Medium);
+console.log(Sizes.Large, Sizes[Sizes.Large]);
