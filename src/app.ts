@@ -1,13 +1,27 @@
-interface IArtist {
-    name: string;
+class Pizza {
+    constructor(private name: string, private price: number) { }
 }
 
-class ArtistCreator implements IArtist {
-    constructor(public name: string) { }    // <-- Artist interface satisfied.
+class List<T> {
+    private list: T[];
+
+    addItem(item: T): void {
+        this.list.push(item);
+    }
+
+    getList(): T[] {
+        return this.list;
+    }
 }
 
-function artistFactory({ name }: ArtistCreator) {
-    return new ArtistCreator(name);
+const list = new List<Pizza>();
+list.addItem(new Pizza('Pepperoni', 15));
+
+const pizzas: Pizza[] = list.getList();
+
+class Coupon {
+    constructor(private name: string) { }
 }
 
-artistFactory({ name: 'Todd' });
+const anotherList = new List<Coupon>();
+anotherList.addItem(new Coupon('PIZZA25'));
