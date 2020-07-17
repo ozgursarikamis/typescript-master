@@ -1,10 +1,3 @@
-class Foo { bar() {} }
-
-const bar = new Foo();
-
-// console.log(bar instanceof Foo);
-// console.log(Object.getPrototypeOf(bar) === Foo.prototype);
-
 class Song {
     constructor(public title: string, public duration: number) { }
 }
