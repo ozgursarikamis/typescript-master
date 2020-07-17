@@ -1,36 +1,36 @@
-// const exists = 'localStorage' in window;
-// for (const prop in [{}]) {}
-
-const foo = 'bar'; // literal type
-
-class Song {
-    kind:'song'; // declaring only type of 'kind' as 'song'
-    constructor(public title: string, public duration: number) { }
-}
-class PlayList {
-    kind: 'playlist'; // declaring only type of 'kind' as 'playlist'
-    constructor(public name: string, public songs: Song[]) { }
+interface Order {
+    id: string;
+    amount: number;
+    currency: string;
 }
 
-function isSong(item: any): item is Song { // explicitly declare the return type to not to get compile-time errors.
-    return 'title' in item;
+interface Stripe {
+    card: string;
+    cvc: string;
 }
 
-function getItemName(item: Song | PlayList) {
-    // if (isSong(item)) {
-    //     return (item as Song).title;
-    // }
-    if (item.kind === 'song') {
-        return item.title;
-    }
-    return item.name;
+interface PayPal {
+    email: string;
 }
 
-const songName = getItemName(new Song('Wonderful', 300000));
-console.log('Song name: ', songName);
+type CheckoutCard = Order & Stripe; // intersection type
+type CheckoutPayPal = Order & PayPal;
+type CheckoutABC = Order & { name: string };
 
-const playListName = getItemName(
-    new PlayList('The Best Songs', [new Song('The Man', 70000)])
-);
+const order: Order = {
+    id: 'xyz123',
+    amount: 100,
+    currency: 'USD'
+};
 
-console.log('Playlist Name', playListName);
+const orderCard: CheckoutCard = {
+    ...order,
+    card: '1000 2000 3000 4000',
+    cvc: '123'
+};
+
+const orderPayPal: CheckoutPayPal = {
+    ...order, email: 'abc@mail.com'
+}
+
+const assigned = Object.assign({}, order, orderCard);
