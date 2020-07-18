@@ -6,8 +6,11 @@
     "start": "parcel index.html --port 3000"
   },
   "devDependencies": {
-    "typescript": "3.9.6",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "typescript": "3.9.6"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.19"
+  }
 }

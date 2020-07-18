@@ -1,15 +1,5 @@
-// String Enums and Inlining Members
+// Writing Declaration Files
 
-enum Sizes {
-    Small = 'small',
-    Medium = 'medium',
-    Large = 'large'
-}
+import * as _ from "lodash";
 
-let selected: Sizes = Sizes.Small;
-function updateSize(size: Sizes): void {
-    selected = size;
-}
-
-updateSize(Sizes.Large);
-console.log(selected);
+_.chunk([1, 2, 3, 4, 5], 2); // [1,2], [3,4]
