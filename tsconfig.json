@@ -6,8 +6,7 @@
     "module": "commonjs",
     "lib": ["dom", "es6"],
     "outDir": "dist",
-    "noImplicitThis": true,
-    "types": ["lodash"],
+    "noImplicitThis": true, 
     "typeRoots": [
       "src/@types",
       "node_modules/@types"
