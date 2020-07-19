@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig-base",
-  "include": ["*.ts"],
-  "exclude": ["src/**/*.spec.ts"],
-  "compilerOptions": {
-    "noImplicitAny": true
-  }
-}

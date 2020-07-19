@@ -1,3 +1,3 @@
-function log(message: any) {
-    console.log(message);
+function log(message) {
+    
 }
