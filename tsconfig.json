@@ -4,7 +4,6 @@
     "module": "commonjs",
     "lib": ["dom", "es6"],
     "outDir": "dist",
-    "noEmitOnError": true,
-    "noImplicitAny": true
+    "sourceMap": true
   }
 }
