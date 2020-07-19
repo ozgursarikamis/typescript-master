@@ -1,3 +1,6 @@
 class Person {
-    name: string = 'Todd'
+    constructor(private name: string) { }
+    getName() {
+        return this.name;
+    }
 }
