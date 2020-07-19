@@ -1,4 +1,3 @@
-class Foo {
-    constructor(public name: string) {}
-    bar(age: number) {}
+function log(message) {
+    console.log(message);
 }
